@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learn Macros</title>
+</head>
+<body>
+    <!-- Read dictionary and give data in tabular format -->
+    {% macro render_dict(dictionary) %}
+    <table>
+        <tr>
+            <th>name</th>
+            <th>value</th>
+            <th>comments</th>
+        </tr>
+        {% for key,val in dictionary.items() %}
+        <tr>
+            <td>{{ key }}</td>
+            <td>{{ val }}</td>
+            {% if val < 60 %}
+                <td>Flop</td>
+            {% elif 60 <= val <= 500 %}
+                <td>Hit</td>
+            {% else %}
+                <td>Super Hit</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endmacro %}
+
+</body>
+</html>

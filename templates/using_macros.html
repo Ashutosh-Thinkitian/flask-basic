@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% import 'macros.html' as my_macro %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using Macros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+</head>
+<body>
+    <h2> Calling macros means import function </h2>
+    {{ my_macro.render_dict(movies_di) }}
+</body>
+</html>

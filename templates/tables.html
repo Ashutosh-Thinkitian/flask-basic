@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box office collection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1> {{ name }}</h1>
+
+    <table style="border: 1px solid black">
+        <tr style="color: red">
+            <th>Movies</th>
+            <th>Collection (in crore rupees) </th>
+            <th>Remarks </th>
+        </tr>
+        {% for keys,values in movies_di.items() %}
+        <tr>
+            <td>{{ keys }}</td>
+            <td>{{ values }}</td>
+            <!-- if else (if collection as big than 60 its hit else flop)-->
+            {% if values < 60 %}
+                <td>Flop</td>
+            {% elif 60 <= values <= 500 %}
+                <td>Hit</td>
+            {% else %}
+                <td>Super Hit</td>
+            {% endif %}
+        </tr>
+
+        {% endfor %}
+    </table>
+
+    <h4>url_for </h4>
+    <h4>Path to css = {{ url_for('static', filename='css/style.css') }}</h4>
+</body>
+</html>

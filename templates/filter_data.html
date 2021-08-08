@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Date</title>
+</head>
+<body>
+  <h2>Working with ninja2 filters</h2>
+  {% for movie, coll in movies|dictsort (false, 'value') %}     <!-- dictsort -perform sorting, case sensitive-false and sort by values -->
+    <ul>
+        <li>{{ movie|title }} : {{ coll|round(1) }}</li>
+    </ul>
+  {% endfor %}
+
+    <hr>
+
+    <ol type="1">
+        <li>Default value   :{{ name|default('value not defined', true) }}</li> <br> <!-- if name is non default executed-->
+        <li>Capital Case    :{{ film|capitalize }}</li><br>
+        <li>Length          :{{ movies|length }} items n the dictionary</li><br>
+        <li>First item      :{{ movies|first }}</li><br>
+        <li>Make a list     :{{ film|list }}</li><br>
+        <li>Replace data    :{{ film|replace('Zindagi','zindaaagii')|upper }}</li> <!-- replace(old,new)-->
+    </ol>
+</body>
+</html>

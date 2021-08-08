@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+</head>
+<body>
+    <h1>my favourite movies</h1>
+    <h2>This collection belongs to {{ name }}</h2>
+    <h2>And the moves list is :</h2>
+    <h2>{{ ', '.join(movies[0:]) }}</h2>
+
+    <!-- Show the movies list in for loop that is render from first.py -->
+    <br>
+    <h3>List of movies in for loop</h3>
+    <ol>
+        {% for i in movies %}
+        <li>{{ i }}</li>
+        {% endfor %}
+    </ol>
+
+</body>
+</html>
