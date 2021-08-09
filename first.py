@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session, g
 from flask_sqlalchemy import SQLAlchemy
 
 from datetime import datetime
@@ -151,6 +151,18 @@ class Book(db.Model):
 
     def __repr__(self):
         return '{} by {} '.format(self.title, self.author)
+
+#    Learn session object
+@app.route('/session')
+def session_data():
+    if 'name' not in session:
+        session['name']='ashu'
+    return render_template('session.html', session=session, name=session['name'])
+
+#   Before request decorator
+@app.before_request
+def some_function():
+    g.String = '<br>This code can run before user get request or any req'
 
 if __name__ == '__main__':
     db.create_all()
